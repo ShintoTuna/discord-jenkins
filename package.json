@@ -1,0 +1,29 @@
+{
+  "dependencies": {
+    "discord.js": "^11.0.0",
+    "restify": "^4.3.0"
+  },
+  "name": "discord-jenkins",
+  "version": "1.0.0",
+  "description": "Jenkins bot for Discord",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShintoTuna/discord-jenkins.git"
+  },
+  "keywords": [
+    "discord",
+    "jenkins",
+    "bot"
+  ],
+  "author": "Nikita Shatunov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ShintoTuna/discord-jenkins/issues"
+  },
+  "homepage": "https://github.com/ShintoTuna/discord-jenkins#readme"
+}
