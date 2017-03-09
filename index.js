@@ -6,6 +6,7 @@ const token = process.env.TOKEN;
 const secret = process.env.SECRET;
 const channelName = process.env.CHANNEL || 'general';
 const port = process.env.PORT || 3333;
+const jenkinsHost = process.env.JENKINS_URL || 'http://localhost'
 
 const server = restify.createServer({ name: 'Discord Jenkins Notify' });
 
@@ -35,7 +36,7 @@ server.post('/jenkins/:secret', (req, res) => {
 
     channels.forEach(channel => {
 
-        const msg = `The build ${job} #${build} - **${req.body.build.status}**\n${req.body.build.full_url}`;
+        const msg = `The build ${job} #${build} - **${req.body.build.status}**\n${jenkinsHost}/${req.body.build.url}\n\nChanges: ${req.body.build.scm.url}/commits/${req.body.build.scm.commit}`;
 
         if (channel.type === 'text' && channel.name === channelName) {
             channel.sendMessage(msg);
@@ -44,4 +45,3 @@ server.post('/jenkins/:secret', (req, res) => {
 
     return res.send('message delivered');
 });
-
