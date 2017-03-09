@@ -5,6 +5,7 @@ const bot = new discord.Client({ autoReconnect: true });
 const token = process.env.TOKEN;
 const secret = process.env.SECRET;
 const channelName = process.env.CHANNEL || 'general';
+const port = process.env.PORT || 3333;
 
 const server = restify.createServer({ name: 'Discord Jenkins Notify' });
 
@@ -12,7 +13,7 @@ server.pre(restify.CORS());
 server.use(restify.queryParser());
 server.use(restify.bodyParser());
 
-server.listen(3333, () => {
+server.listen(port, () => {
     console.log(`${server.name} Listening at ${server.url}`);
 
     bot.login(token)
