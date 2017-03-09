@@ -25,7 +25,6 @@ server.post('/jenkins/:secret', (req, res) => {
     const job = req.body.name;
     const build = req.body.build.number;
     const reqsecret = req.params.secret;
-    let status = '';
 
     if (reqsecret !== secret) {
         return res.send(401, 'Unauthorized');
