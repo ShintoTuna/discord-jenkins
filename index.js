@@ -36,7 +36,7 @@ server.post('/jenkins/:secret', (req, res) => {
 
     channels.forEach(channel => {
 
-        const msg = `The build ${job} #${build} - **${req.body.build.status}**\n${jenkinsHost}/${req.body.build.url}\n\nChanges: ${req.body.build.scm.url}/commits/${req.body.build.scm.commit}`;
+        const msg = `The build ${job} #${build} - **${req.body.build.status}**\n${jenkinsHost}/${req.body.build.url}\n++++++++++++++++++++++++++++++++++++++++++++`;
 
         if (channel.type === 'text' && channel.name === channelName) {
             channel.sendMessage(msg);
